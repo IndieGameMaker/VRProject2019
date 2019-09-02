@@ -28,7 +28,7 @@
 |8팀||정재성|||
 
 ### 프로젝트 발표 문서
-![발표문서 작성](https://docs.google.com/presentation/d/1sIKbGPr0Sgbvxudt5AyyVXN1GpWQGlIZ98a61T5TACI/edit?usp=sharing)
+[발표문서 작성](https://docs.google.com/presentation/d/1sIKbGPr0Sgbvxudt5AyyVXN1GpWQGlIZ98a61T5TACI/edit?usp=sharing)
 
 ### 발표순서
 미정
