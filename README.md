@@ -83,7 +83,9 @@
 
 ### 오큘러스 퀘스트 팁
 
-[물체 잡고 던지기](https://gist.github.com/IndieGameMaker/fa50b69a2df705a15240f6fc500acc73)
+- **[화면 녹화 및 실시간 뷰어](https://github.com/IndieGameMaker/QuestRecording)**
+
+- **[물체 잡고 던지기](https://gist.github.com/IndieGameMaker/fa50b69a2df705a15240f6fc500acc73)**
 ```cs
 using System.Collections;
 using System.Collections.Generic;
