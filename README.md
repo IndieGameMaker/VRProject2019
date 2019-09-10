@@ -80,3 +80,63 @@
 |팀 빌딩,세부일정|2019/09/09|#|||||||||||
 |개발기간|2019/09/10 ~ 09/25||#|#|#|#|#|#|#|#|#|#|
 |발표일|2019/09/25 16:00|||||||||||#|
+
+### 오큘러스 퀘스트 팁
+
+[물체 잡고 던지기](https://gist.github.com/IndieGameMaker/fa50b69a2df705a15240f6fc500acc73)
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GrabManager : MonoBehaviour
+{
+    public Transform tr;
+    public Transform grabObject;
+
+    private bool isTouched = false;
+    private bool isGrabbed = false;
+
+    // Start is called before the first frame updatec
+    void Start()
+    {
+        tr = GetComponent<Transform>();
+    }
+
+    void Update()
+    {
+        //잡는 동작
+        if (isTouched && OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
+        {
+            grabObject.SetParent(tr);
+            grabObject.GetComponent<Rigidbody>().isKinematic = true;
+            isGrabbed = true;
+        }
+
+        if (isGrabbed && OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
+        {
+            grabObject.SetParent(null);
+            Vector3 _velocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
+            grabObject.GetComponent<Rigidbody>().velocity = _velocity;
+            grabObject.GetComponent<Rigidbody>().isKinematic = false;
+            isGrabbed = false;
+            isTouched = false;
+            grabObject = null;
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+        {
+            OVRInput.SetControllerVibration(0.5f, 0.5f, OVRInput.Controller.RTouch);
+        }
+    }
+
+    void OnTriggerEnter(Collider coll)
+    {
+        if (coll.gameObject.layer == 8)
+        {
+            grabObject = coll.transform;
+            isTouched = true;
+        }
+    }
+}
+```
