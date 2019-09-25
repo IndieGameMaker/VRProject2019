@@ -48,6 +48,12 @@
 - 6Dof 컨트롤러를 제공하는 VR 장비를 활용한 교육, 훈련 시뮬레이션 콘텐츠를 제작하는 프로젝트
 - 기기 : 오큘러스 퀘스트, Vive 중 택일
 
+### 오큘러스 퀘스트 팁
+
+- **[화면 녹화 및 실시간 뷰어](https://github.com/IndieGameMaker/QuestRecording)**
+
+- **[물체 잡고 던지기](https://gist.github.com/IndieGameMaker/fa50b69a2df705a15240f6fc500acc73)**
+
 ### 예제
 
 - 소방 훈련
@@ -64,13 +70,13 @@
 - **위플래쉬**
 
 ### 프로젝트 팀
-|팀|프로젝트 명|기기|팀원|팀장|발표자|
+|팀명|프로젝트 명|기기|팀원|팀장|발표자|
 |-|-|-|-|-|-|
 |팀|뇌의 구조와 기능 교육|Vive|고승로, 이지현|고승로||
 |팀|우주유영 시뮬레이션|Vive|박종석, 임근오, 심유진|박종석||
-|팀|위플래쉬|Vive|한종현,김기범,박민희|김기범||
+|드레머팀|위플래쉬|Vive|한종현,김기범,박민희|김기범||
 |팀|알콜 중독 치료 프로그램|Quest|최완수, 이재범|최완수||
-|팀|바리스타 VR|Quest|김별, 윤성표, 임정희|김별||
+|스타디벅스 팀|바리스타 VR|Quest|김별, 윤성표, 임정희|김별||
 |팀|VR 테트리스|Quest|김성준|김성준|||
 |팀|Space Pirate|Quest|손정수,정재성|손정수|||
 
@@ -81,64 +87,16 @@
 |개발기간|2019/09/10 ~ 09/25||#|#|#|#|#|#|#|#|#|#|
 |발표일|2019/09/25 16:00|||||||||||#|
 
-### 오큘러스 퀘스트 팁
+### 발표순서
 
-- **[화면 녹화 및 실시간 뷰어](https://github.com/IndieGameMaker/QuestRecording)**
+**2019/09/25 16:00 ~ 17:30**
 
-- **[물체 잡고 던지기](https://gist.github.com/IndieGameMaker/fa50b69a2df705a15240f6fc500acc73)**
-```cs
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class GrabManager : MonoBehaviour
-{
-    public Transform tr;
-    public Transform grabObject;
-
-    private bool isTouched = false;
-    private bool isGrabbed = false;
-
-    // Start is called before the first frame updatec
-    void Start()
-    {
-        tr = GetComponent<Transform>();
-    }
-
-    void Update()
-    {
-        //잡는 동작
-        if (isTouched && OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
-        {
-            grabObject.SetParent(tr);
-            grabObject.GetComponent<Rigidbody>().isKinematic = true;
-            isGrabbed = true;
-        }
-
-        if (isGrabbed && OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
-        {
-            grabObject.SetParent(null);
-            Vector3 _velocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
-            grabObject.GetComponent<Rigidbody>().velocity = _velocity;
-            grabObject.GetComponent<Rigidbody>().isKinematic = false;
-            isGrabbed = false;
-            isTouched = false;
-            grabObject = null;
-        }
-
-        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
-        {
-            OVRInput.SetControllerVibration(0.5f, 0.5f, OVRInput.Controller.RTouch);
-        }
-    }
-
-    void OnTriggerEnter(Collider coll)
-    {
-        if (coll.gameObject.layer == 8)
-        {
-            grabObject = coll.transform;
-            isTouched = true;
-        }
-    }
-}
-```
+|팀|프로젝트 명|
+|-|-|
+|팀|우주유영 시뮬레이션|
+|팀|Space Pirate|
+|팀|VR 테트리스|
+|팀|알콜 중독 치료 프로그램|
+|팀|뇌의 구조와 기능 교육|
+|스타디벅스 팀|바리스타 VR|
+|드레머 팀|위플래쉬|
