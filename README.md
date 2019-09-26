@@ -100,3 +100,8 @@
 |브레인 이지|뇌의 구조와 기능 교육|
 |스타디벅스|바리스타 VR|
 |드레머|위플래쉬|
+
+
+# 머신러닝
+
+[윈도우 개발환경 설정](https://github.com/IndieGameMaker/ml_install)
