@@ -105,3 +105,5 @@
 # 머신러닝
 
 [윈도우 개발환경 설정](https://github.com/IndieGameMaker/ml_install)
+
+[실습 소스코드](https://github.com/IndieGameMaker/Mummy)
